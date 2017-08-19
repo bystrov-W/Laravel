@@ -19,7 +19,7 @@
 						<label for="task" class="col-sm-3 control-label">Имя</label>
 
 						<div class="col-sm-9">
-							<input type="text" name="name" id="name" class="form-control" value="{{ $task->name or ''}}">
+							<input type="text" name="name" id="name" class="form-control" value="{{ old('name') or $task->name }}">
 						</div>
 					</div>
 					<!-- Телефон -->
@@ -27,7 +27,7 @@
 						<label for="task" class="col-sm-3 control-label">Телефон</label>
 
 						<div class="col-sm-9">
-							<input type="text" name="phone" id="phone" class="form-control" value="{{ $task->phone or ''}}">
+							<input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') or $task->phone }}">
 							<input type="hidden" name="id" id="id" class="form-control" value="{{ $task->id or ''}}">
 						</div>
 					</div>

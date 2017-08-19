@@ -90,7 +90,7 @@ class TaskController extends Controller
     {
         $this->validate($request, [
 			'name' => 'required|max:255',
-			'phone' => 'required|max:255',
+			'phone' => 'required|digits:10',
 		]);
     }
 }

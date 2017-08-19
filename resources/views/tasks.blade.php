@@ -16,7 +16,7 @@
 						<label for="task" class="col-sm-3 control-label">Имя</label>
 
 						<div class="col-sm-9">
-							<input type="text" name="name" id="task-name" class="form-control">
+							<input type="text" name="name" id="task-name" class="form-control" value="{{ old('name') }}">
 						</div>
 					</div>
 					<!-- Телефон -->
@@ -24,7 +24,7 @@
 						<label for="task" class="col-sm-3 control-label">Телефон</label>
 
 						<div class="col-sm-9">
-							<input type="text" name="phone" id="phone" class="form-control">
+							<input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') }}">
 						</div>
 					</div>
 					<!-- Кнопка добавления задачи -->
