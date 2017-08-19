@@ -11,8 +11,9 @@
 				<!-- Отображение ошибок проверки ввода -->
 				@include('common.errors')
 				<!-- Форма новой задачи -->
-				<form action="/change" method="POST" class="form-horizontal">
-				{{ csrf_field() }}
+				<form action="/task/{{ $task->id }}" method="POST" class="form-horizontal">
+					{{ csrf_field() }}
+					{{ method_field('PUT') }}
 					<!-- Имя задачи -->
 					<div class="form-group">
 						<label for="task" class="col-sm-3 control-label">Имя</label>

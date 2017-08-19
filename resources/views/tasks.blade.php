@@ -57,10 +57,10 @@
 							</td>
 							<!-- Кнопка Удалить -->
 							<td>
-								<a href="/change/{{ $task->id }}">Изменить</a>
+								<a href="/task/{{ $task->id }}/edit">Изменить</a>
 								<form action="/task/{{ $task->id }}" method="POST">
-								{{ csrf_field() }}
-								{{ method_field('DELETE') }}
+									{{ csrf_field() }}
+									{{ method_field('DELETE') }}
 									<button type="submit" class="btn btn-danger">Удалить</button>
 								</form>
 							</td>
