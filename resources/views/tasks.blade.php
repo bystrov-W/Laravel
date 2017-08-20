@@ -9,8 +9,8 @@
 				<!-- Отображение ошибок проверки ввода -->
 				@include('common.errors')
 				<!-- Форма новой задачи -->
-				<form action="/task" method="POST" class="form-horizontal">
-				{{ csrf_field() }}
+				<form action="{{ route('task.store') }}" method="POST" class="form-horizontal">
+					{{ csrf_field() }}
 					<!-- Имя задачи -->
 					<div class="form-group">
 						<label for="task" class="col-sm-3 control-label">Имя</label>
@@ -57,8 +57,8 @@
 							</td>
 							<!-- Кнопка Удалить -->
 							<td>
-								<a href="/task/{{ $task->id }}/edit">Изменить</a>
-								<form action="/task/{{ $task->id }}" method="POST">
+								<a href="{{ route('task.edit', ['task' => $task->id]) }}">Изменить</a>
+								<form action="{{ route('task.destroy', ['task' => $task->id]) }}" method="POST">
 									{{ csrf_field() }}
 									{{ method_field('DELETE') }}
 									<button type="submit" class="btn btn-danger">Удалить</button>

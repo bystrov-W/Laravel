@@ -11,7 +11,7 @@
 				<!-- Отображение ошибок проверки ввода -->
 				@include('common.errors')
 				<!-- Форма новой задачи -->
-				<form action="/task/{{ $task->id }}" method="POST" class="form-horizontal">
+				<form action="{{ route('task.update', ['task' => $task->id]) }}" method="POST" class="form-horizontal">
 					{{ csrf_field() }}
 					{{ method_field('PUT') }}
 					<!-- Имя задачи -->
@@ -19,7 +19,7 @@
 						<label for="task" class="col-sm-3 control-label">Имя</label>
 
 						<div class="col-sm-9">
-							<input type="text" name="name" id="name" class="form-control" value="{{ old('name') or $task->name }}">
+							<input type="text" name="name" id="name" class="form-control" value="{{ old('name') ? old('name') : $task->name }}">
 						</div>
 					</div>
 					<!-- Телефон -->
@@ -27,8 +27,8 @@
 						<label for="task" class="col-sm-3 control-label">Телефон</label>
 
 						<div class="col-sm-9">
-							<input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') or $task->phone }}">
-							<input type="hidden" name="id" id="id" class="form-control" value="{{ $task->id or ''}}">
+							<input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') ? old('phone') : $task->phone }}">
+							<input type="hidden" name="id" id="id" class="form-control" value="{{ $task->id }}">
 						</div>
 					</div>
 					<!-- Кнопка добавления задачи -->

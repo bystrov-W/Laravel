@@ -15,9 +15,9 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::orderBy('created_at', 'asc')->get();
-		return view('tasks', [
-			'tasks' => $tasks
-		]);
+        return view('tasks', [
+            'tasks' => $tasks
+        ]);
     }
 
     /**
@@ -30,12 +30,12 @@ class TaskController extends Controller
     {
         $this->validateTask($request);
 
-		$task = new Task;
-		$task->name = $request->name;
-		$task->phone = $request->phone;
-		$task->save();
+        $task = new Task;
+        $task->name = $request->name;
+        $task->phone = $request->phone;
+        $task->save();
 
-		return redirect('/task');
+        return redirect()->route('task.index');
     }
 
     /**
@@ -47,7 +47,7 @@ class TaskController extends Controller
     public function destroy($id)
     {
         Task::find($id)->delete();
-		return redirect('/task');
+        return redirect()->route('task.index');
     }
 
     /**
@@ -59,7 +59,7 @@ class TaskController extends Controller
     public function edit($id)
     {
         $tasks = Task::find([$id]);
-		return view('change', ['tasks' => $tasks]);
+        return view('change', ['tasks' => $tasks]);
     }
 
     /**
@@ -78,7 +78,7 @@ class TaskController extends Controller
         $task->phone = $request->phone;
         $task->save();
 
-        return redirect('/task');
+        return redirect()->route('task.index');
     }
 
     /**
@@ -89,8 +89,8 @@ class TaskController extends Controller
     private function validateTask(Request $request) 
     {
         $this->validate($request, [
-			'name' => 'required|max:255',
-			'phone' => 'required|digits:10',
-		]);
+            'name' => 'required|max:255',
+            'phone' => 'required|digits:10',
+        ]);
     }
 }
